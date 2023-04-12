@@ -1,8 +1,8 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React from 'react'
+import { Link } from 'react-router-dom'
 
 const FavoriteMovieList = (props) => {
-  const { favoriteMovies } = props;
+  const { favoriteMovies } = props
 
   return (
     <div className="flex-1 sm:max-w-[250px] p-5 pr-5 bg-white shadow rounded-md">
@@ -19,7 +19,7 @@ const FavoriteMovieList = (props) => {
         ))}
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default FavoriteMovieList;
+export default FavoriteMovieList

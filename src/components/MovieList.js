@@ -1,11 +1,10 @@
-import React from "react";
+import React from 'react'
 
-import MovieListItem from "./MovieListItem";
-import MovieFooter from "./MovieFooter";
-import FavoriteMovieList from "./FavoriteMovieList";
+import MovieListItem from './MovieListItem'
+import MovieFooter from './MovieFooter'
 
 const MovieList = (props) => {
-  const { movies, favoriteMovies } = props;
+  const { movies } = props
 
   return (
     <div className="flex-1">
@@ -30,7 +29,7 @@ const MovieList = (props) => {
       </div>
       <MovieFooter totalMovies={movies.length} />
     </div>
-  );
-};
+  )
+}
 
-export default MovieList;
+export default MovieList

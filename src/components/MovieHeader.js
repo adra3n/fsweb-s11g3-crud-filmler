@@ -1,5 +1,5 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React from 'react'
+import { Link } from 'react-router-dom'
 
 const MovieHeader = () => {
   return (
@@ -18,7 +18,7 @@ const MovieHeader = () => {
         </Link>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default MovieHeader;
+export default MovieHeader

@@ -1,15 +1,14 @@
-import React, { useState, useEffect } from 'react'
-import { useParams, useHistory } from 'react-router-dom'
+import React, { useState } from 'react'
+import { useHistory } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 
 import axios from 'axios'
 
-const EditMovieForm = (props) => {
+const AddMovieForm = (props) => {
   const { push } = useHistory()
 
-  let { id } = useParams()
-
   const { setMovies } = props
+
   const [movie, setMovie] = useState({
     title: '',
     director: '',
@@ -28,27 +27,17 @@ const EditMovieForm = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault()
     axios
-      .put(`http://localhost:9000/api/movies/${id}`, movie)
-      .then((res) => {
-        setMovies(res.data)
-        push(`/movies/${movie.id}`)
+      .post(`http://localhost:9000/api/movies`, movie)
+      .then((response) => {
+        setMovies(response.data)
+        push(`/movies`)
       })
-      .catch((err) => {
-        console.log(err)
+      .catch((error) => {
+        console.log(error)
       })
   }
 
   const { title, director, genre, metascore, description } = movie
-
-  useEffect(() => {
-    axios
-      .get(`http://localhost:9000/api/movies/${id}`)
-      .then((response) => {
-        console.log(response.data)
-        setMovie(response.data)
-      })
-      .catch((error) => console.log(error))
-  }, [id])
 
   return (
     <div className="bg-white rounded-md shadow flex-1">
@@ -122,4 +111,4 @@ const EditMovieForm = (props) => {
   )
 }
 
-export default EditMovieForm
+export default AddMovieForm
